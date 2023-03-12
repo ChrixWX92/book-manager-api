@@ -10,6 +10,10 @@ public interface BookManagerService {
     Book insertBook(Book book);
     Book getBookById(Long id);
 
+
+    //User Story 1 - Delete Book By Id Solution
+    void deleteBookById(Long id);
     //User Story 4 - Update Book By Id Solution
     void updateBookById(Long id, Book book);
+
 }

@@ -36,7 +36,15 @@ public class BookManagerController {
         return new ResponseEntity<>(newBook, httpHeaders, HttpStatus.CREATED);
     }
 
-    //User Story 4 - Update Book By Id Solution
+    //User Story 1 - Delete Book By Id Solution
+    @DeleteMapping({"/{bookId}"})
+    public ResponseEntity<Book> deleteBookById(@PathVariable("bookId") Long bookId) {
+        bookManagerService.deleteBookById(bookId);
+        // Returning empty body - no set standard, but many APIs appear to do it this way
+        return new ResponseEntity<>(ResponseEntity.EMPTY.getHeaders(), HttpStatus.OK);
+    }
+
+    // User Story 4 - Update Book By Id Solution
     @PutMapping({"/{bookId}"})
     public ResponseEntity<Book> updateBookById(@PathVariable("bookId") Long bookId, @RequestBody Book book) {
         bookManagerService.updateBookById(bookId, book);
